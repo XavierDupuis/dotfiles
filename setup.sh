@@ -1,3 +1,4 @@
+apt update -y
 apt install zsh git fzf stow -y
 git clone https://github.com/XavierDupuis/dotfiles.git ~/dotfiles
 cd ~/dotfiles
