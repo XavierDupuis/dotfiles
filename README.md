@@ -1,0 +1,1 @@
+apt install curl -y && sh -c "$(curl -fsSL https://raw.githubusercontent.com/XavierDupuis/dotfiles/mains/setup.sh)"
