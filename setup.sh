@@ -1,8 +1,8 @@
 sudo apt update -y
 sudo apt install curl zsh git fzf stow -y
 
-git clone https://github.com/XavierDupuis/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/XavierDupuis/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 stow .
 cd -
 
