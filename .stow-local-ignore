@@ -1,5 +1,5 @@
 .git
 .gitignore
-.ttf
+/.ttf
 README.md
 setup.sh
