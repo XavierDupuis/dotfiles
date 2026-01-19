@@ -1,0 +1,60 @@
+directory: /mnt/d/musicbeets
+library: /mnt/d/musicbeets/beets_library.db
+
+import:
+    log: ~/.cache/beets/import.log
+    copy: yes
+    write: yes
+    move: no
+
+per_disc_numbering: yes
+
+match:
+    preferred:
+        countries: ['US']
+        media: ['CD', 'Digital Media|File']
+        original_year: yes
+
+plugins:
+  - unimported
+  - web
+  - musicbrainz
+  - lastgenre
+  - fetchart
+  - embedart
+  - scrub
+  - the
+  - lyrics
+
+paths:
+    default: %the{$albumartist}/$original_year - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)
+    singleton: "#Non-Album/$artist/$title"
+    comp: "#Compilations/%the{$albumartist}/$original_year - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)"
+
+unimported:
+    ignore_extensions: jpg png
+    # ignore_subdirectories: playlists
+
+fetchart:
+    minwidth: 400
+    enforce_ratio: 0.5%
+    sources:
+      - itunes
+      - albumart
+      - filesystem
+      - coverart
+      - amazon
+
+embedart:
+    auto: no
+
+scrub:
+    auto: yes
+
+lyrics:
+    auto: no
+    sources:
+      - lrclib
+      - google
+      - genius
+      - tekstowo
