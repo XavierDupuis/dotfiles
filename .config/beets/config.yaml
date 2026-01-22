@@ -25,6 +25,8 @@ plugins:
   - scrub
   - the
   - lyrics
+  - discogs
+  - hook
 
 paths:
     default: %the{$albumartist}/$original_year - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)
@@ -58,3 +60,13 @@ lyrics:
       - google
       - genius
       - tekstowo
+
+discogs:
+    user_token: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+hook:
+  hooks:
+    - event: pluginload
+      command: sh -c 'touch ~/.cache/beets/copy.log && printf "Import started on %s\n" "$(date +%Y-%m-%d\ %H:%M:%S)" >> ~/.cache/beets/copy.log'
+    - event: item_copied
+      command: sh -c 'printf "copied \"%s\" to \"%s\"\n" "{source}" "{destination}" >> ~/.cache/beets/copy.log'
