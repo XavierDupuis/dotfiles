@@ -11,7 +11,7 @@ per_disc_numbering: yes
 
 match:
     preferred:
-        countries: ['US']
+        # countries: ['US']
         media: ['CD', 'Digital Media|File']
         original_year: yes
 
@@ -27,11 +27,13 @@ plugins:
   - lyrics
   - discogs
   - hook
+# https://docs.beets.io/en/stable/plugins/smartplaylist.html
+# https://docs.beets.io/en/stable/plugins/badfiles.html
 
 paths:
-    default: %the{$albumartist}/$original_year - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)
+    default: %the{$albumartist}/$original_year - $album%aunique{} (%upper{$format})/$disc-$track - $title ($bitrate)
     singleton: "#Non-Album/$artist/$title"
-    comp: "#Compilations/%the{$albumartist}/$original_year - $album%aunique{} [%upper{$albumtype}] (%upper{$format})/$disc-$track - $title ($bitrate)"
+    comp: "#Compilations/%the{$albumartist}/$original_year - $album%aunique{} (%upper{$format})/$disc-$track - $title ($bitrate)"
 
 unimported:
     ignore_extensions: jpg png
