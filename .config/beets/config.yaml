@@ -1,11 +1,11 @@
-directory: /mnt/d/musicbeets
-library: /mnt/d/musicbeets/beets_library.db
+directory: "/mnt/d/40-49 MEDIA/42 MUSIC/Music"
+library: "/mnt/d/40-49 MEDIA/42 MUSIC/42.02 Beets/beets.db"
 
 import:
     log: ~/.cache/beets/import.log
-    copy: yes
+    # copy: yes
     write: yes
-    move: no
+    move: yes
 
 per_disc_numbering: yes
 
@@ -69,6 +69,8 @@ discogs:
 hook:
   hooks:
     - event: pluginload
-      command: sh -c 'touch ~/.cache/beets/copy.log && printf "Import started on %s\n" "$(date +%Y-%m-%d\ %H:%M:%S)" >> ~/.cache/beets/copy.log'
+      command: sh -c 'touch ~/.cache/beets/hooks-import.log && printf "Import started on %s\n" "$(date +%Y-%m-%d\ %H:%M:%S)" >> ~/.cache/beets/hooks-import.log'
     - event: item_copied
-      command: sh -c 'printf "copied \"%s\" to \"%s\"\n" "{source}" "{destination}" >> ~/.cache/beets/copy.log'
+      command: sh -c 'printf "copied \"%s\" to \"%s\"\n" "{source}" "{destination}" >> ~/.cache/beets/hooks-import.log'
+    - event: item_moved
+      command: sh -c 'printf "moved \"%s\" to \"%s\"\n" "{source}" "{destination}" >> ~/.cache/beets/hooks-import.log'
