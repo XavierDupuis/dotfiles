@@ -27,6 +27,7 @@ plugins:
   - lyrics
   - discogs
   - hook
+  - info
 # https://docs.beets.io/en/stable/plugins/smartplaylist.html
 # https://docs.beets.io/en/stable/plugins/badfiles.html
 
