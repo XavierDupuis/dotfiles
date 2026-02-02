@@ -41,14 +41,14 @@ unimported:
     # ignore_subdirectories: playlists
 
 fetchart:
-    minwidth: 400
-    enforce_ratio: 0.5%
+    cautious: yes
+    minwidth: 200
     sources:
+      - filesystem
+      - coverart: release
+      - spotify
       - itunes
       - albumart
-      - filesystem
-      - coverart
-      - amazon
 
 embedart:
     auto: no
